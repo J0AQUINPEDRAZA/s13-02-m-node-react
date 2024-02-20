@@ -5,9 +5,9 @@ import React from 'react'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/navigation'
 
-const router = useRouter()
 const pageChallenges = () => {
   const goBackButton = () => {
+    const router = useRouter()
     router.push('/')
   }
   return (
