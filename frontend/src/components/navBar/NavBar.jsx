@@ -8,7 +8,7 @@ import Logo from '../logo/Logo'
 import Pet from '../pet/Pet'
 import MobileMenu from '../mobileMenu/MobileMenu'
 
-const avatarLetter = localStorage.getItem('avatar')
+// const avatarLetter = localStorage.getItem('avatar')
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileView, setIsMobileView] = useState(false)
@@ -62,7 +62,7 @@ function NavBar() {
               sx={{ p: 0 }}
               className='hidden md:flex' /* Solo visible en dispositivos de tamaño medio y grande */
             >
-              <Avatar className='h-12 w-12'>{avatarLetter}</Avatar>
+              <Avatar className='h-12 w-12'></Avatar>
             </IconButton>
           )}
           {/* Contenido del menú móvil */}
