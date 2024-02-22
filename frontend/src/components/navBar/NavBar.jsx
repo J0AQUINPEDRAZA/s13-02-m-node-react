@@ -8,12 +8,10 @@ import Logo from '../logo/Logo'
 import Pet from '../pet/Pet'
 import MobileMenu from '../mobileMenu/MobileMenu'
 
+const avatarLetter = localStorage.getItem('avatar')
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileView, setIsMobileView] = useState(false)
-  const [avatarLetter, setAvatarLetter] = useState(
-    localStorage.getItem('avatar')
-  )
 
   useEffect(() => {
     const handleResize = () => {
