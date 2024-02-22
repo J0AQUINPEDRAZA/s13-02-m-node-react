@@ -11,6 +11,9 @@ import MobileMenu from '../mobileMenu/MobileMenu'
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileView, setIsMobileView] = useState(false)
+  const [avatarLetter, setAvatarLetter] = useState(
+    localStorage.getItem('avatar')
+  )
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,9 +64,7 @@ function NavBar() {
               sx={{ p: 0 }}
               className='hidden md:flex' /* Solo visible en dispositivos de tamaño medio y grande */
             >
-              <Avatar className='h-12 w-12'>
-                {localStorage.getItem('avatar')}
-              </Avatar>
+              <Avatar className='h-12 w-12'>{avatarLetter}</Avatar>
             </IconButton>
           )}
           {/* Contenido del menú móvil */}
