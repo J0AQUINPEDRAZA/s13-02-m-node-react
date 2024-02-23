@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { errorAuthManagement } from '../services/hooksAuth'
 const loginPost = async (userData, router, setErrorAuth) => {
+  setErrorAuth('')
   await axios
     .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, userData)
     .then(function (res) {
