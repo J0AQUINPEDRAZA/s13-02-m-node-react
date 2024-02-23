@@ -8,11 +8,10 @@ import Logo from '../logo/Logo'
 import Pet from '../pet/Pet'
 import MobileMenu from '../mobileMenu/MobileMenu'
 
-// const avatarLetter = localStorage.getItem('avatar')
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileView, setIsMobileView] = useState(false)
-
+  const [avatarLetter, setAvatarLetter] = useState('')
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 768)
@@ -30,8 +29,11 @@ function NavBar() {
     // console.log("menu abierto");
   }
 
+  useEffect(() => {
+    setAvatarLetter(localStorage.getItem('avatar'))
+  }, [])
   return (
-    <AppBar position='fixed' className='flex bg-[#10151D] '>
+    <AppBar position='static' className='flex bg-[#10151D]'>
       <Container maxWidth='xl' className='bg-[#10151D] h-20'>
         <Toolbar
           disableGutters
@@ -48,26 +50,22 @@ function NavBar() {
           {isMobileView ? (
             <IconButton
               sx={{ p: 0 }}
-              className='md:hidden '
+              className='md:hidden text-white'
               onClick={toggleMobileMenu}
             >
-              {isMobileMenuOpen ? (
-                <CloseIcon className='text-white' />
-              ) : (
-                <MenuIcon className='text-white' />
-              )}
+              {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
           ) : (
             <IconButton
               sx={{ p: 0 }}
               className='hidden md:flex' /* Solo visible en dispositivos de tamaño medio y grande */
             >
-              <Avatar className='h-12 w-12'></Avatar>
+              <Avatar className='h-12 w-12'>{avatarLetter}</Avatar>
             </IconButton>
           )}
           {/* Contenido del menú móvil */}
           {isMobileMenuOpen && (
-            <div className='absolute z-50'>
+            <div className='absolute top-11 right-4 z-50 '>
               <MobileMenu className='absolute z-50' />
             </div>
           )}
