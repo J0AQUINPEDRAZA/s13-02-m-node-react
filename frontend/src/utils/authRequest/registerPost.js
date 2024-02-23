@@ -3,7 +3,7 @@ import { errorAuthManagement } from '../services/hooksAuth'
 
 const registerPost = async (userData, router, setErrorAuth) => {
   await axios
-    .post(`${process.env.NEXT_PUBLIC_API_URL}/register`, userData)
+    .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, userData)
     .then(function (res) {
       router.push('/login')
       setErrorAuth('')
