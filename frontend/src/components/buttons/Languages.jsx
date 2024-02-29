@@ -3,7 +3,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Button, styled } from '@mui/material'
 import Stack from '@mui/material/Stack'
-import { useMediaQuery } from '@mui/material'
 const LanguageButton = styled(Button)({
   color: '#ffffff',
   borderColor: '#86198f',
@@ -13,29 +12,35 @@ const LanguageButton = styled(Button)({
   }
 })
 
-const Languages = ({ onClick, data }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState(Object.keys(data[0]))
+const Languages = ({ data, onLanguageSelect}) => {
+  const [selectedLanguage, setSelectedLanguage] = useState();
 
-  const handleButtonClick = (language) => {
-    setSelectedLanguage(language)
-    // onClick(language)
-  }
-
+  const handleButtonClick = (languageId) => {
+    onLanguageSelect(languageId);
+    setSelectedLanguage(languageId);
+  };
   useEffect(() => {
-    // onClick(selectedLanguage)
-  }, [selectedLanguage, onClick])
+    if (!data || data.length === 0 || selectedLanguage) {
+      return;
+    }
 
+    setSelectedLanguage(data[0].id);
+  }, [data, selectedLanguage]);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className='mb-3'>
       <Stack spacing={2} direction='row'>
         {data.map((res) => (
           <LanguageButton
-            key={res.name}
+            key={res.id}
             variant='outlined'
-            onClick={() => handleButtonClick(res.name)}
-            style={{
-              backgroundColor: selectedLanguage === res.name ? '#d946ef' : ''
-            }}
+             onClick={() => handleButtonClick(res.id)}
+             style={{
+               backgroundColor: selectedLanguage === res.id ? '#d946ef' : ''
+             }}
           >
             {res.name}
           </LanguageButton>
