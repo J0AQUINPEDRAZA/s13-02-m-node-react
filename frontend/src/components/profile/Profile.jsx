@@ -33,7 +33,7 @@ const Profile = () => {
   const [updateName, setUpdateName] = useState('')
 
   const avt = useSelector((state) => state.auth.avatar)
-  let token = localStorage.getItem('idKey')
+  let token = localStorage?.getItem('idKey')
 
   const decodedToken = jwtDecode(token)
 
