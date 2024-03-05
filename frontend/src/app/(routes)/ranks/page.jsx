@@ -6,7 +6,7 @@ import { CardHome } from '@/components/cardHome/CardHome'
 import MedalsRanks from '@/components/medals-ranks/MedalsRanks'
 import AscentZone from '@/components/ascent-zone/AscentZone'
 import Pagination from '@/components/ascent-zone/Pagination'
-import { useUserData } from '@/utils/services/usersRequest/useUserData'
+import { useUserData } from '@/utils/usersRequest/useUserData'
 
 const PageRanks = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -38,7 +38,7 @@ const PageRanks = () => {
       </Snackbar>
       <main className='grid gap-2 grid-cols-1 lg:grid-cols-4 relative'>
         <aside className='w-60 lg:w-full lg:max-w-60 xl:max-w-80 hidden lg:block lg:col-span-1 space-y-5 '>
-          <div className='w-full sticky top-24'>
+          <div className='w-full sticky top-24 flex flex-col gap-5'>
             <ChooseYourState />
             <CardHome secondary={true} />
           </div>
