@@ -31,8 +31,13 @@ const Profile = () => {
   const [userData, setUserData] = useState('')
   const [editar, setEditar] = useState(false)
   const [updateName, setUpdateName] = useState('')
+  const [token, setToken] = useState()
 
   const avt = useSelector((state) => state.auth.avatar)
+  useEffect(() => {
+    setToken(localStorage.getItem('idKey'))
+  }, [])
+
   const decodedToken = jwtDecode(token)
 
   // hacer un get a la api para obtener los datos del usuario pasando el token
@@ -46,7 +51,7 @@ const Profile = () => {
         `${process.env.NEXT_PUBLIC_API_URL}/users/${userId}`,
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('idKey')}`
+            Authorization: `Bearer ${token}`
           }
         }
       )
