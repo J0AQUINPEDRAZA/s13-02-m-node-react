@@ -13,7 +13,10 @@ import {
 
 const Roadmap = ({ selectedLanguageId, progressStackId }) => {
   const questionsHook = useQuestionChallenge()
-
+  const [userId, setUserId] = useState('')
+  useEffect(() => {
+    setUserId(localStorage.getItem('idUser'))
+  }, [])
   const { themes } = useGetThemes()
   const { progressThemes } = useGetProgressThemes(progressStackId)
 
@@ -60,7 +63,7 @@ const Roadmap = ({ selectedLanguageId, progressStackId }) => {
     const questionData = {
       theme: data.name,
       level: data.level,
-      id_user: localStorage.getItem('idUser'),
+      id_user: userId,
       quest_number: 1
     }
 
