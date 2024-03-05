@@ -36,10 +36,10 @@ const Profile = () => {
   useEffect(() => {
     setUserId(localStorage.getItem('idUser'))
   }, [])
-  const avt = useSelector((state) => state.auth.avatar)
   useEffect(() => {
     setToken(localStorage.getItem('idKey'))
   }, [])
+  const avt = useSelector((state) => state.auth.avatar)
 
   // hacer un get a la api para obtener los datos del usuario pasando el token
 
