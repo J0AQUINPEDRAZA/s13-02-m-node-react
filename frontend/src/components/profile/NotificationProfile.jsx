@@ -6,7 +6,7 @@ import axios from 'axios' // Asegúrate de importar axios
 import { jwtDecode } from 'jwt-decode'
 
 const NotificationProfile = ({ notification, userData, setUserData }) => {
-  const [token, setToken] = useState()
+  const [token, setToken] = useState('')
   useEffect(() => {
     setToken(JSON.stringify(localStorage.getItem('idKey')))
   }, [])

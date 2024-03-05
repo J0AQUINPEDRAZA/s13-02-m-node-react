@@ -31,7 +31,7 @@ const Profile = () => {
   const [userData, setUserData] = useState('')
   const [editar, setEditar] = useState(false)
   const [updateName, setUpdateName] = useState('')
-  const [token, setToken] = useState()
+  const [token, setToken] = useState('')
 
   const avt = useSelector((state) => state.auth.avatar)
   useEffect(() => {
