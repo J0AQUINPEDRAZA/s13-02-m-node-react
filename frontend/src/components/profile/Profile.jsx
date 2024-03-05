@@ -35,7 +35,7 @@ const Profile = () => {
 
   const avt = useSelector((state) => state.auth.avatar)
   useEffect(() => {
-    setToken(localStorage.getItem('idKey'))
+    setToken(localStorage.getItem('idKey').toString)
   }, [])
 
   const decodedToken = jwtDecode(token)
