@@ -32,13 +32,14 @@ const Profile = () => {
   const [editar, setEditar] = useState(false)
   const [updateName, setUpdateName] = useState('')
   const [token, setToken] = useState('')
-
+  const [userId, setUserId] = useState('')
+  useEffect(() => {
+    setUserId(localStorage.getItem('idUser'))
+  }, [])
   const avt = useSelector((state) => state.auth.avatar)
   useEffect(() => {
-    setToken(JSON.parse(localStorage.getItem('idKey')))
+    setToken(localStorage.getItem('idKey'))
   }, [])
-
-  const decodedToken = jwtDecode(token)
 
   // hacer un get a la api para obtener los datos del usuario pasando el token
 
@@ -62,7 +63,6 @@ const Profile = () => {
   }
 
   // Ejemplo de cómo llamar a getUserData con un userId específico.
-  const userId = decodedToken.user.id
   useEffect(() => {
     getUserData(userId)
   }, [])

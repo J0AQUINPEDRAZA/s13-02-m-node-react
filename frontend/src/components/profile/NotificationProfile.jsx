@@ -6,13 +6,10 @@ import axios from 'axios' // Asegúrate de importar axios
 import { jwtDecode } from 'jwt-decode'
 
 const NotificationProfile = ({ notification, userData, setUserData }) => {
-  const [token, setToken] = useState('')
+  const [userId, setUserId] = useState('')
   useEffect(() => {
-    setToken(JSON.parse(localStorage.getItem('idKey')))
+    setUserId(localStorage.getItem('idKey'))
   }, [])
-
-  const decodedToken = jwtDecode(token)
-  const userId = decodedToken.user.id
 
   const handleChange = async (event) => {
     try {
