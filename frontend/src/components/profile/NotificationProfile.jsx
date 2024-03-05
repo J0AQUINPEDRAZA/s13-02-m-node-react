@@ -8,7 +8,7 @@ import { jwtDecode } from 'jwt-decode'
 const NotificationProfile = ({ notification, userData, setUserData }) => {
   const [token, setToken] = useState()
   useEffect(() => {
-    setToken(localStorage.getItem('idKey').toString)
+    setToken(JSON.stringify(localStorage.getItem('idKey')))
   }, [])
 
   const decodedToken = jwtDecode(token)
