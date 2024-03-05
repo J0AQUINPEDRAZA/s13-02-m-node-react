@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-const avt = localStorage?.getItem('avatar')
+
 const initialState = {
   token: null,
-  avatar: avt || null,
+  avatar: null,
   error: null
 }
 
