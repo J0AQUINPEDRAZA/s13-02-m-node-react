@@ -31,7 +31,7 @@ function NavBar() {
 
   useEffect(() => {
     setAvatarLetter(localStorage.getItem('avatar'))
-  }, [avatarLetter])
+  }, [])
 
   // const handlePetClick = () => {
   //   window.location.href = '/' // Redirige a la página de inicio cuando se hace clic en Pet
