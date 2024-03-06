@@ -21,16 +21,15 @@ const Languages = ({
   setStackProgressId
 }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(data[0]?.id)
-  const [hasProgressMap, setHasProgressMap] = useState(new Map())
-
-  const [token, setToken] = useState('')
   const [userId, setUserId] = useState('')
+  const [token, setToken] = useState('')
+
   useEffect(() => {
     setUserId(localStorage.getItem('idUser'))
-  }, [])
-  useEffect(() => {
     setToken(localStorage.getItem('idKey'))
   }, [])
+
+  const [hasProgressMap, setHasProgressMap] = useState(new Map())
 
   const hasProgress = (progressStacks, languageId) => {
     return progressStacks.some(
@@ -54,7 +53,7 @@ const Languages = ({
         setStackProgressId(progressStack.id)
       }
     }
-  }, [progressStacks, setStackProgressId])
+  }, [])
 
   const handleButtonClick = async (languageId) => {
     onLanguageSelect(languageId)

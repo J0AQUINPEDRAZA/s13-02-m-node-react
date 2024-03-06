@@ -34,7 +34,7 @@ export const useGetThemesById = () => {
       }
     }
     fetchData()
-  }, [])
+  }, [themeId])
 
   return { themesById }
 }
@@ -61,8 +61,8 @@ export const useGetProgressThemes = (progressStackId) => {
         console.error('Error fetching data:', error)
       }
     }
-    fetchData()
-  }, [token, progressStackId, setProgressThemes])
+    progressStackId ? fetchData() : {}
+  }, [progressStackId])
   return { progressThemes }
 }
 
