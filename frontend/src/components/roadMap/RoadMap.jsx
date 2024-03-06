@@ -76,7 +76,7 @@ const Roadmap = ({ selectedLanguageId, progressStackId }) => {
     const questionData = {
       theme: data.name,
       level: data.level,
-      id_user: localStorage.getItem('idUser'),
+      id_user: '4cfc810c-d9bc-48dc-bab6-caac44f307cd',
       quest_number: 10
     }
     progressThemes
