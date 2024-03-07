@@ -147,7 +147,6 @@ const Profile = () => {
           ></Avatar>
         )}
       </Grid>
-      //Joaquin1!
       <Cards />
     </Container>
   )
